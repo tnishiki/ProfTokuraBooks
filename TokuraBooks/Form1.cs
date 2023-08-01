@@ -11,6 +11,56 @@
         {
             InitializeComponent();
 
+            //ラベルやテキストボックスなどを配置します
+            MakeItems();
+        }
+        //10進のテキストボックスの値を2進に変換します
+        private void D2B_Click(object sender, EventArgs e)
+        {
+            int D;
+            string S = textbox1.Text;
+            string B = "";
+
+            Mes($"Input :{S}");
+            if (S == "") { Mes("10 進数が必要"); return; }
+            if (int.TryParse(S, out D) == false) { Mes("Illegal decimal number"); return; }
+
+            Mes($"D={D}");
+            while (D > 0)
+            {
+                B = (D % 2 == 0) ? "0" + B : "1" + B;
+                D = D / 2;
+                Mes($"B={B}, D={D}");
+            }
+            if (B == "") B = "0";
+            Rep1($"{B}");
+        }
+        //2進のテキストボックスの値を10進に変換します
+        private void B2D_Click(object sender, EventArgs e)
+        {
+            int D = 0;
+            string S = textbox2.Text;
+            string B = S;
+
+            Mes($"Input :{S}");
+            if (S == "") { Mes("2 進数が必要"); return; }
+
+            foreach (char c in B)
+            {
+                D = 2 * D + (c - '0');
+                Mes($"c={c}, D={D}");
+            }
+            Rep2($"{D}");
+        }
+
+        void Rep1(string s) => textbox1.Text = s;
+        void Rep2(string s) => textbox2.Text = s;
+        void Mes(string s) => textbox3.AppendText($"{s}\r\n");
+
+        void Clear(object sender, EventArgs e) => textbox3.Clear();
+
+        void MakeItems()
+        {
             panel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -78,42 +128,5 @@
             Controls.Add(textbox3);
             Controls.Add(panel);
         }
-        private void D2B_Click(object sender, EventArgs e)
-        {
-            string S = textbox1.Text;
-            Mes($"Input :{S}");
-            if (S == "") { Mes("10 進数が必要"); return; }
-            string B = "";
-            if (int.TryParse(S, out int D) == false) { Mes("Illegal decimal number"); return; }
-            Mes($"D={D}");
-            while (D > 0)
-            {
-                B = (D % 2 == 0) ? "0" + B : "1" + B;
-                D = D / 2;
-                Mes($"B={B}, D={D}");
-            }
-            if (B == "") B = "0";
-            Rep1($"{B}");
-        }
-        private void B2D_Click(object sender, EventArgs e)
-        {
-            string S = textbox2.Text;
-            Mes($"Input :{S}");
-            if (S == "") { Mes("2 進数が必要"); return; }
-            string B = S;
-            int D = 0;
-            foreach (char c in B)
-            {
-                D = 2 * D + (c - '0');
-                Mes($"c={c}, D={D}");
-            }
-            Rep2($"{D}");
-        }
-
-        void Rep1(string s) => textbox1.Text = s;
-        void Rep2(string s) => textbox2.Text = s;
-        void Mes(string s) => textbox3.AppendText($"{s}\r\n");
-
-        void Clear(object sender, EventArgs e) => textbox3.Clear();
     }
 }
