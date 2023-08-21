@@ -2,10 +2,7 @@
 {
     public partial class Form1 : Form
     {
-        Panel panel;
-        Label label1, label2;
         TextBox textbox1, textbox2, textbox3;
-        Button button1, button2, button3;
 
         public Form1()
         {
@@ -61,6 +58,10 @@
 
         void MakeItems()
         {
+            Panel panel;
+            Label label1, label2;
+            Button button1, button2, button3;
+
             panel = new Panel
             {
                 Dock = DockStyle.Top,
