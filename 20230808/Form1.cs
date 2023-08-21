@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -22,12 +23,15 @@ namespace _20230821
         void StageSetting1()
         {
             Label label1, label2;
-            Button button1, button2;
+            Button /* button1,*/ button2;
             SplitContainer Splitcontainer1;
             string s1 = "10 進";
             string s2 = "2 進";
-            int x1 = 15; int x2 = 200;
+            int x1 = 15; int x2 = 250;
             int y1 = 20; int y2 = 60; int y3 = 100;
+
+            this.Width = 1200;
+
             Splitcontainer1 = new SplitContainer
             {
                 Dock = DockStyle.Fill,
@@ -35,7 +39,7 @@ namespace _20230821
                 Orientation = Orientation.Vertical,
                 SplitterWidth = 4,
                 BorderStyle = BorderStyle.FixedSingle,
-                SplitterDistance = 80,
+                SplitterDistance = 60,
             };
             label1 = new Label()
             {
@@ -67,27 +71,27 @@ namespace _20230821
                 Multiline = true,
                 ScrollBars = ScrollBars.Vertical,
             };
-            button1 = new Button
-            {
-                Location = new Point(x1, y3),
-                Size = new Size(100, 30),
-                Text = "10 進2進",
-                Visible = false,
-            };
+            //button1 = new Button
+            //{
+            //    Location = new Point(x1, y3),
+            //    Size = new Size(100, 30),
+            //    Text = "10進2進",
+            //    Visible = false,
+            //};
             button2 = new Button
             {
-                Location = new Point(x2, y3),
-                Size = new Size(100, 30),
-                Text = "test",
+                Location = new Point(x1 + 130, y2),
+                Size = new Size(90, 30),
+                Text = "変換",
             };
             button2.Click += Test2_Click;
             Splitcontainer1.Panel1.Controls.Add(label1);
             Splitcontainer1.Panel1.Controls.Add(label2);
             Splitcontainer1.Panel1.Controls.Add(textbox1);
+            Splitcontainer1.Panel1.Controls.Add(button2);
             Splitcontainer1.Panel1.Controls.Add(textbox2);
             Splitcontainer1.Panel2.Controls.Add(textbox3);
-            Splitcontainer1.Panel1.Controls.Add(button1);
-            Splitcontainer1.Panel1.Controls.Add(button2);
+            //Splitcontainer1.Panel1.Controls.Add(button1);
             Controls.Add(Splitcontainer1);
         }
  
@@ -99,8 +103,13 @@ namespace _20230821
             string y = "";
             int c = b;
             while (c > 0) { y = (c & 0x1) + y; c = c >> 1; }
-            textbox2.Text = y;
-            textbox3.AppendText($"B={s1}, {y}, 1.1={b % 4}，1.2={b & 0x3} 2.1={b / 4 % 16}, 2.2={(b >> 2) & 0xF}, 3.1 ={(128 <= b) && (b < 192)}, 3.2 ={b >> 6 == 2}\r\n");
+            for(c = y.Length; c < 8; c++) { y = "0" + y; }
+            textbox2.Text =  y;
+            textbox3.AppendText(
+                $"B={s1},\t{y}\t"+
+                $"1.1={b % 4}, "                   + $"1.2={b & 0x3}\t"+
+                $"2.1={b / 4 % 16}, "              + $"2.2={(b >> 2) & 0xF},\t"+
+                $"3.1={(128 <= b) && (b < 192)}, " + $"3.2={b >> 6 == 2}\r\n");
         }
     }
 }
