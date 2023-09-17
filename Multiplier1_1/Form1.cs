@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Multiplier1._1
+namespace Multiplier1_1
 {
     public partial class Form1 : Form
     {

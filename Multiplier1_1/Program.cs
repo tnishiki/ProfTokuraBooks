@@ -1,4 +1,4 @@
-namespace Multiplier1._1
+namespace Multiplier1_1
 {
     internal static class Program
     {
