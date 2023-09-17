@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "20230801", "20230801\20230801.csproj", "{A23D16AA-96FC-487F-A857-5F277BC0F415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multiplier1", "Multiplier1\Multiplier1.csproj", "{9265869A-32FC-4226-933E-9053331FACAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multiplier1", "Multiplier1\Multiplier1.csproj", "{9265869A-32FC-4226-933E-9053331FACAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multiplier1.1", "Multiplier1.1\Multiplier1.1.csproj", "{E1E316D7-BAC2-4373-9427-CE1A3AA8E60E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9265869A-32FC-4226-933E-9053331FACAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9265869A-32FC-4226-933E-9053331FACAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9265869A-32FC-4226-933E-9053331FACAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1E316D7-BAC2-4373-9427-CE1A3AA8E60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E316D7-BAC2-4373-9427-CE1A3AA8E60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E316D7-BAC2-4373-9427-CE1A3AA8E60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E316D7-BAC2-4373-9427-CE1A3AA8E60E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

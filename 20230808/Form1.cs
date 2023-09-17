@@ -1,13 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+//using System;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.ComponentModel.DataAnnotations;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using System.Windows.Forms;
 
 
 namespace _20230821
@@ -27,9 +27,8 @@ namespace _20230821
             SplitContainer Splitcontainer1;
             string s1 = "10 進";
             string s2 = "2 進";
-            int x1 = 15; int x2 = 250;
-            int y1 = 20; int y2 = 60; int y3 = 100;
-
+            int x1 = 15, x2 = 250;
+            int y1 = 20, y2 = 60;
             this.Width = 1200;
 
             Splitcontainer1 = new SplitContainer
@@ -71,13 +70,6 @@ namespace _20230821
                 Multiline = true,
                 ScrollBars = ScrollBars.Vertical,
             };
-            //button1 = new Button
-            //{
-            //    Location = new Point(x1, y3),
-            //    Size = new Size(100, 30),
-            //    Text = "10進2進",
-            //    Visible = false,
-            //};
             button2 = new Button
             {
                 Location = new Point(x1 + 130, y2),
